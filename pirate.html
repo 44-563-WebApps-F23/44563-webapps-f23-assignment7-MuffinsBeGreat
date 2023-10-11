@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <title>Assignment 7</title>
+    <header>Find the treasure by Casey Wormington</header>
+    <head><style>
+        .flex-container {
+            display: flex;  flex-direction:row;
+            background-color: red;
+        }
+        .flex-container > div {  /*div children of the flex container*/
+            background-color: #f1f1f1; 
+            margin: 10px;  padding: 20px;  font-size: 30px;
+        }
+        /* Responsive layout */
+        @media (max-width: 600px) { 
+            .flex-container{
+                flex-direction:column;
+                background-color: green;
+            }
+        }
+    </style></head>
+    <body>
+        <p>Click on the locations to search for treasure, beware the traps</p>
+        <p id="locations">Number of locations checked is zero</p>
+        <p id="penalty">Penalty is zero</p>
+        <p>Click for help.</p>
+        <p id="help">Help report</p>
+    </body>
+</html>
