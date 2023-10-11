@@ -26,7 +26,7 @@
         <p>Click on the locations to search for treasure, beware the traps</p>
         <p id="locations">Number of locations checked is zero</p>
         <p id="penalty">Penalty is zero</p>
-        <p>Click for help.</p>
+        <p onclick="help()">Click for help.</p>
         <p id="help">Help report</p>
 
         <div class="flex-container">
@@ -75,7 +75,7 @@
             checkCount = 0
             penalty = 0
             lastCheck = 0
-            treasureLocation = 5
+            treasureLocation = 10
             trapLocation = 18
             gameOver = false
 
@@ -107,6 +107,29 @@
                 pen.innerHTML = "Penalty is " + penalty
 
                 lastCheck = position
+            }
+
+            function help() {
+                hel = document.getElementById("help")
+                if(lastCheck == treasureLocation + 1 || lastCheck == treasureLocation - 1){
+                    hel.innerHTML = "Can Smell It"
+                }
+                else if(lastCheck == treasureLocation + 5 || lastCheck == treasureLocation - 5){
+                    hel.innerHTML = "Can Smell It"
+                }
+                else if(lastCheck == treasureLocation + 2 || lastCheck == treasureLocation - 2){
+                    hel.innerHTML = "Close Matie"
+                }
+                else if(lastCheck == treasureLocation + 10 || lastCheck == treasureLocation - 10){
+                    hel.innerHTML = "Close Matie"
+                }
+                else {
+                    hel.innerHTML = "Step Faster"
+                }
+                penalty += 2
+
+                pen = document.getElementById("penalty")
+                pen.innerHTML = "Penalty is " + penalty
             }
         </script>
     </body>
