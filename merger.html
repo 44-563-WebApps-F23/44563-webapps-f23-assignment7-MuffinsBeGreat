@@ -26,15 +26,16 @@
 
 <body>
 	<input type="text" id="in">
-		<div class="flex-container" id="target">
-		  <div class="merger">row item 1</div>   
-		  <div class="merger">row item 2</div>  
-		  <div class="merger">row item 3</div>  
-		</div>
+	<div class="flex-container" id="target">
+		<div class="merger">row item 1</div>   
+		<div class="merger">row item 2</div>  
+		<div class="merger">row item 3</div>  
+	</div>
 	
-	<p> Press the button to create an new element of type div and then add it to the container.
-		</p>
-		<button onclick="makeNewDiv()">Add end</button>
+	<p> Press the button to create an new element of type div and then add it to the container.</p>
+	<button onclick="makeNewDiv()">Add end</button>
+	<button onclick="addFront()">Add front</button>
+	<button onclick="remove()">Remove</button>
 	
 	
 </body>
@@ -50,6 +51,23 @@
 
 		element.innerHTML = document.getElementById("in").value
 		element.className = "merger"
+	}
+
+	function addFront() {
+		let element = document.createElement("div")
+		element.innerHTML = "Add front"
+		element.className = "merger"
+		element.innerHTML = document.getElementById("in").value
+
+		let container = document.getElementById("target")
+		container.insertBefore(element, container.firstChild)
+	}
+
+	function remove() {
+		mergerItems = document.getElementsByClassName("merger")
+		if(mergerItems.length > 0) {
+			mergerItems[Math.floor(mergerItems.length/2)].remove()
+		}
 	}
 </script>
 </html>	
