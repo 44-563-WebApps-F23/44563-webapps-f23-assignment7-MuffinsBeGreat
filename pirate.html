@@ -31,40 +31,83 @@
 
         <div class="flex-container">
             <div class="row">
-                <div class="col-md"><img src="cancun-1.jpeg"></div>
-                <div class="col-md"><img src="download.jpg"></div>
-                <div class="col-md"><img src="images.jpg"></div>
-                <div class="col-md"><img src="images (1).jpg"></div>
-                <div class="col-md"><img src="download (1).jpg"></div>
+                <div class="col-md"><img src="cancun-1.jpeg" id="zero" onclick="check(0)"></div>
+                <div class="col-md"><img src="download.jpg" id="one" onclick="check(1)"></div>
+                <div class="col-md"><img src="images.jpg" id="two" onclick="check(2)"></div>
+                <div class="col-md"><img src="images (1).jpg" id="three" onclick="check(3)"></div>
+                <div class="col-md"><img src="download (1).jpg" id="four" onclick="check(4)"></div>
             </div>
             <div class="row">
-                <div class="col-md"><img src="portroyal.jpg"></div>
-                <div class="col-md"><img src="download.jpg"></div>
-                <div class="col-md"><img src="trap2.jpg"></div>
-                <div class="col-md"><img src="images (1).jpg"></div>
-                <div class="col-md"><img src="download (1).jpg"></div>
+                <div class="col-md"><img src="Cancun-1.jpeg" id="five" onclick="check(5)"></div>
+                <div class="col-md"><img src="download.jpg" id="six" onclick="check(6)"></div>
+                <div class="col-md"><img src="images.jpg" id="seven" onclick="check(7)"></div>
+                <div class="col-md"><img src="images (1).jpg" id="eight" onclick="check(8)"></div>
+                <div class="col-md"><img src="download (1).jpg" id="nine" onclick="check(9)"></div>
             </div>
             <div class="row">
-                <div class="col-md"><img src="deep.jpg"></div>
-                <div class="col-md"><img src="download.jpg"></div>
-                <div class="col-md"><img src="trap3.jpg"></div>
-                <div class="col-md"><img src="images (1).jpg"></div>
-                <div class="col-md"><img src="download (1).jpg"></div>
+                <div class="col-md"><img src="Cancun-1.jpeg" id="ten" onclick="check(10)"></div>
+                <div class="col-md"><img src="download.jpg" id="eleven" onclick="check(11)"></div>
+                <div class="col-md"><img src="images.jpg" id="twelve" onclick="check(12)"></div>
+                <div class="col-md"><img src="images (1).jpg" id="thirteen" onclick="check(13)"></div>
+                <div class="col-md"><img src="download (1).jpg" id="fourteen" onclick="check(14)"></div>
             </div>
             <div class="row">
-                <div class="col-md"><img src="sand.jpg"></div>
-                <div class="col-md"><img src="download.jpg"></div>
-                <div class="col-md"><img src="trap4.jpg"></div>
-                <div class="col-md"><img src="images (1).jpg"></div>
-                <div class="col-md"><img src="download (1).jpg"></div>
+                <div class="col-md"><img src="Cancun-1.jpeg" id="fifteen" onclick="check(15)"></div>
+                <div class="col-md"><img src="download.jpg" id="sixteen" onclick="check(16)"></div>
+                <div class="col-md"><img src="images.jpg" id="seventeen" onclick="check(17)"></div>
+                <div class="col-md"><img src="images (1).jpg" id="eightteen" onclick="check(18)"></div>
+                <div class="col-md"><img src="download (1).jpg" id="nineteen" onclick="check(19)"></div>
             </div>
             <div class="row">
-                <div class="col-md"><img src="castle.jpg"></div>
-                <div class="col-md"><img src="download.jpg"></div>
-                <div class="col-md"><img src="trap5.jpg"></div>
-                <div class="col-md"><img src="images (1).jpg"></div>
-                <div class="col-md"><img src="download (1).jpg"></div>
+                <div class="col-md"><img src="Cancun-1.jpeg" id="twenty" onclick="check(20)"></div>
+                <div class="col-md"><img src="download.jpg" id="twentyone" onclick="check(21)"></div>
+                <div class="col-md"><img src="images.jpg" id="twentytwo" onclick="check(22)"></div>
+                <div class="col-md"><img src="images (1).jpg" id="twentythree" onclick="check(23)"></div>
+                <div class="col-md"><img src="download (1).jpg" id="twentyfour" onclick="check(24)"></div>
             </div>
         </div>
+
+        <script>
+            ids = ["zero", "one", "two", "three", "four", "five", "six", "seven",
+                "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen",
+                "fifteen", "sixteen", "seventeen", "eightteen", "nineteen", "twenty",
+                "twentyone", "twentytwo", "twentythree", "twentyfour"]
+            checkCount = 0
+            penalty = 0
+            lastCheck = 0
+            treasureLocation = 5
+            trapLocation = 18
+            gameOver = false
+
+            function check(position) {
+                if(gameOver) {
+                    return
+                }
+                currentId = ids[position]
+                if(ids.indexOf(currentId) == treasureLocation) {
+                    document.getElementById(currentId).src="download.jpg";
+                    gameOver = true
+                    penalty -= 3
+                }
+                else if(ids.indexOf(currentId) == trapLocation) {
+                    document.getElementById(currentId).src="images.jpg";
+                    gameOver = true
+                    penalty += 4
+                }
+                else {
+                    document.getElementById(currentId).src="images (1).jpg";
+                }
+                checkCount++
+                penalty++
+
+                loc = document.getElementById("locations")
+                loc.innerHTML = "Number of locations checked is " + checkCount
+                
+                pen = document.getElementById("penalty")
+                pen.innerHTML = "Penalty is " + penalty
+
+                lastCheck = position
+            }
+        </script>
     </body>
 </html>
